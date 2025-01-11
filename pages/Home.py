@@ -16,3 +16,12 @@ st.markdown(
 )
 
 st.header("Dashboard")
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    option = st.selectbox(
+    "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone"),)
+
+    st.write("You selected:", option)
