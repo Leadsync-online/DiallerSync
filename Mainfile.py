@@ -32,12 +32,11 @@ def signup(username, password):
     try:
         user = supabase.auth.sign_up({"email": username, "password": password})
         st.success("Sign-up successful! You can now log in.")
-        return user
+        st.switch_page("Login")
     except Exception as e:
         st.error(f"Sign-up failed: {e}")
-        return None
 
-# Define main app layout
+# Main app layout
 def main():
     st.title("Welcome to My App")
     st.write("Log in or sign up to continue.")
@@ -51,21 +50,31 @@ def main():
         if user:
             st.session_state["user"] = user
             st.success("Logged in successfully!")
-            st.switch_page("Mainfile.py")
+            st.switch_page("Mainfile")
 
-    # Sign-up section
-    st.subheader("Sign Up")
+    # Sign-up button
+    if st.button("Sign Up"):
+        st.switch_page("Sign Up")
+
+# Sign-up page
+def signup_page():
+    st.title("Sign Up")
+    st.write("Create a new account.")
+
     signup_email = st.text_input("New Email", key="signup_email")
     signup_password = st.text_input("New Password", type="password", key="signup_password")
-    if st.button("Sign Up"):
+    if st.button("Create Account"):
         signup(signup_email, signup_password)
 
-# Handle page navigation
-def navigate_to_home():
-    st.experimental_set_query_params(page="Home")
-    st.experimental_rerun()
+    # Back to login button
+    if st.button("Back to Login"):
+        st.switch_page("Login")
 
-if "user" not in st.session_state:
+# Handle page routing
+if "page" not in st.session_state:
+    st.session_state["page"] = "Login"
+
+if st.session_state["page"] == "Login":
     main()
-else:
-    st.switch_page("Home.py")
+elif st.session_state["page"] == "Sign Up":
+    signup_page()
