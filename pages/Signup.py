@@ -2,6 +2,19 @@ import streamlit as st
 from supabase import create_client, Client
 import Modules as md
 
+st.set_page_config(initial_sidebar_state="collapsed")
+
+st.markdown(
+    """
+<style>
+    [data-testid="collapsedControl"] {
+        display: none
+    }
+</style>
+""",
+    unsafe_allow_html=True,
+)
+
 # Sign-up page
 def signup_page():
     st.title("Sign Up")
