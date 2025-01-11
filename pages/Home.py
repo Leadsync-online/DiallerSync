@@ -19,11 +19,8 @@ st.header("Dashboard")
 
 col1, col2, col3 = st.columns(3)
 
-option = st.selectbox(
-"How would you like to be contacted?",
-("Email", "Home phone", "Mobile phone"))
-
 with col1:
-
-
-    st.write("You selected:", option)
+    st.selectbox(
+    "Please select campaign?",
+    ("Onair", "MTN", "Mobile phone"))
+    
