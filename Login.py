@@ -16,6 +16,10 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+col1, col2, col2 = st.columns([1,1,1])  # Adjust column ratios as needed
+
+
+
 # Main app layout
 def main():
     st.title("Dialler Sync")
@@ -33,8 +37,9 @@ def main():
             st.switch_page("pages/Home.py")
 
     # Sign-up button
-    if st.button("Signup"):
-        st.switch_page("pages/Signup.py")
+    with col3:
+        if st.button("Signup"):
+            st.switch_page("pages/Signup.py")
 
 # Handle page routing
 main()
