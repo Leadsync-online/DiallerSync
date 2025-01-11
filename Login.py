@@ -29,15 +29,15 @@ def main():
     st.subheader("Login")
     username = st.text_input("Email", key="login_email")
     password = st.text_input("Password", type="password", key="login_password")
-    if st.button("Login"):
-        user = md.login(username, password)
-        if user:
-            st.session_state["user"] = user
-            st.success("Logged in successfully!")
-            st.switch_page("pages/Home.py")
-
-    # Sign-up button
+    
     with col2:
+        if st.button("Login"):
+            user = md.login(username, password)
+            if user:
+                st.session_state["user"] = user
+                st.success("Logged in successfully!")
+                st.switch_page("pages/Home.py")
+    # Sign-up button
         if st.button("Signup"):
             st.switch_page("pages/Signup.py")
 
