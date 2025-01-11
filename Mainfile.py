@@ -51,8 +51,7 @@ def main():
         if user:
             st.session_state["user"] = user
             st.success("Logged in successfully!")
-            st.experimental_set_query_params(page="Home")
-            st.experimental_rerun()
+            st.switch_page("Mainfile.py")
 
     # Sign-up section
     st.subheader("Sign Up")
@@ -69,4 +68,4 @@ def navigate_to_home():
 if "user" not in st.session_state:
     main()
 else:
-    st.switch_page("Mainfile.py")
+    st.switch_page("Home.py")
