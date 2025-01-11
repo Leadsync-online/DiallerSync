@@ -16,7 +16,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-col1, col2, col2 = st.columns([1,1,1])  # Adjust column ratios as needed
+col1, col2, col3 = st.columns([1,1,1])  # Adjust column ratios as needed
 
 
 
@@ -37,7 +37,7 @@ def main():
             st.switch_page("pages/Home.py")
 
     # Sign-up button
-    with col3:
+    with col2:
         if st.button("Signup"):
             st.switch_page("pages/Signup.py")
 
