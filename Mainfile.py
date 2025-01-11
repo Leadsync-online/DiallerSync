@@ -69,4 +69,4 @@ def navigate_to_home():
 if "user" not in st.session_state:
     main()
 else:
-    navigate_to_home()
+    st.switch_page("Mainfile.py")
