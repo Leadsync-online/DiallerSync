@@ -1,5 +1,6 @@
 import streamlit as st
 from supabase import create_client, Client
+import Modules as md
 
 # Hide Streamlit sidebar and other UI elements
 hide_st_style = """
@@ -24,7 +25,7 @@ def main():
     username = st.text_input("Email", key="login_email")
     password = st.text_input("Password", type="password", key="login_password")
     if st.button("Login"):
-        user = login(username, password)
+        user = md.login(username, password)
         if user:
             st.session_state["user"] = user
             st.success("Logged in successfully!")
