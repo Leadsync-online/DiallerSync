@@ -25,7 +25,7 @@ def main():
     username = st.text_input("Email", key="login_email")
     password = st.text_input("Password", type="password", key="login_password")
     if st.button("Login"):
-        user = md.login(username, password)
+        user = login(username, password)
         if user:
             st.session_state["user"] = user
             st.success("Logged in successfully!")
