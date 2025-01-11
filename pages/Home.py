@@ -2,7 +2,7 @@ import streamlit as st
 from supabase import create_client, Client
 import Modules as md
 
-st.set_page_config(initial_sidebar_state="collapsed")
+st.set_page_config(initial_sidebar_state="collapsed",layout="wide")
 
 st.markdown(
     """
