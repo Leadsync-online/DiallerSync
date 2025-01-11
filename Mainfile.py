@@ -6,12 +6,15 @@ SUPABASE_URL = "https://adqhjaqlidqbiqltwhpk.supabase.co"  # Replace with your S
 SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFkcWhqYXFsaWRxYmlxbHR3aHBrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjkzMjc3MDgsImV4cCI6MjA0NDkwMzcwOH0.O3MVZ-FTnR43E6GYgguGn_hl3uWrv6bu3pYkVLIrNkI"  # Replace with your Supabase project API key
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-# Hide Streamlit sidebar
+# Hide Streamlit sidebar and other UI elements
 hide_st_style = """
     <style>
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
+    .block-container {
+        padding-top: 2rem;
+    }
     </style>
 """
 st.markdown(hide_st_style, unsafe_allow_html=True)
@@ -21,14 +24,14 @@ def login(username, password):
     try:
         user = supabase.auth.sign_in_with_password({"email": username, "password": password})
         return user
-    except Exception as e:
+    except Exception:
         st.error("Login failed. Check your username and password.")
         return None
 
 def signup(username, password):
     try:
         user = supabase.auth.sign_up({"email": username, "password": password})
-        st.success("Sign-up successful! Please log in.")
+        st.success("Sign-up successful! You can now log in.")
         return user
     except Exception as e:
         st.error(f"Sign-up failed: {e}")
@@ -36,29 +39,27 @@ def signup(username, password):
 
 # Define main app layout
 def main():
-    st.title("Streamlit Supabase Authentication")
+    st.title("Welcome to My App")
+    st.write("Log in or sign up to continue.")
 
-    # Login and Signup form selector
-    auth_action = st.sidebar.radio("Select Action", ("Login", "Sign Up"))
+    # Login form
+    st.subheader("Login")
+    username = st.text_input("Email", key="login_email")
+    password = st.text_input("Password", type="password", key="login_password")
+    if st.button("Login"):
+        user = login(username, password)
+        if user:
+            st.session_state["user"] = user
+            st.success("Logged in successfully!")
+            st.experimental_set_query_params(page="Home")
+            st.experimental_rerun()
 
-    if auth_action == "Login":
-        st.header("Login")
-        username = st.text_input("Email")
-        password = st.text_input("Password", type="password")
-        if st.button("Login"):
-            user = login(username, password)
-            if user:
-                st.session_state["user"] = user
-                st.success("Logged in successfully!")
-                st.experimental_set_query_params(page="Home")
-                st.experimental_rerun()
-
-    elif auth_action == "Sign Up":
-        st.header("Sign Up")
-        username = st.text_input("Email")
-        password = st.text_input("Password", type="password")
-        if st.button("Sign Up"):
-            signup(username, password)
+    # Sign-up section
+    st.subheader("Sign Up")
+    signup_email = st.text_input("New Email", key="signup_email")
+    signup_password = st.text_input("New Password", type="password", key="signup_password")
+    if st.button("Sign Up"):
+        signup(signup_email, signup_password)
 
 # Handle page navigation
 def navigate_to_home():
