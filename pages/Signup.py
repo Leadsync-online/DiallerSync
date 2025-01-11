@@ -14,7 +14,7 @@ def signup_page():
 
     # Back to login button
     if st.button("Back to Login"):
-        st.switch_page("Login")
+        st.switch_page("Login.py")
 
 if "page" not in st.session_state:
     st.session_state["page"] = "Signup"
