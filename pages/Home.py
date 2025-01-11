@@ -32,4 +32,4 @@ with col2:
 
 with col3:
     if st.button("Import file"):
-        st.write("Why hello there")
+        st.switch_page("pages/Import.py")
