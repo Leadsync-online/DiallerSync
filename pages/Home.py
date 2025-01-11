@@ -31,6 +31,5 @@ with col2:
     st.date_input("Please select date?", today)
 
 with col3:
-    st.write("New file")
-    if st.button("Import file"):
+    if st.button("Import file",, use_container_width=True):
         st.switch_page("pages/Import.py")
