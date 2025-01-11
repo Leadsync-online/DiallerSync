@@ -3,17 +3,18 @@ from supabase import create_client, Client
 import Modules as md
 
 # Hide Streamlit sidebar and other UI elements
-hide_st_style = """
-    <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-    .block-container {
-        padding-top: 2rem;
+st.set_page_config(initial_sidebar_state="collapsed")
+
+st.markdown(
+    """
+<style>
+    [data-testid="collapsedControl"] {
+        display: none
     }
-    </style>
-"""
-st.markdown(hide_st_style, unsafe_allow_html=True)
+</style>
+""",
+    unsafe_allow_html=True,
+)
 
 # Main app layout
 def main():
