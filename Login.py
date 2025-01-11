@@ -19,16 +19,6 @@ hide_st_style = """
 """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-# Define login and signup functions
-
-def signup(username, password):
-    try:
-        user = supabase.auth.sign_up({"email": username, "password": password})
-        st.success("Sign-up successful! You can now log in.")
-        st.switch_page("Login")
-    except Exception as e:
-        st.error(f"Sign-up failed: {e}")
-
 # Main app layout
 def main():
     st.title("Welcome to My App")
