@@ -34,3 +34,5 @@ with col3:
     st.text("")
     if st.button("Import file", use_container_width=True):
         st.switch_page("pages/Import.py")
+
+st.subheader("Dialler Statistics", divider=False)
