@@ -20,13 +20,6 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # Define login and signup functions
-def login(username, password):
-    try:
-        user = supabase.auth.sign_in_with_password({"email": username, "password": password})
-        return user
-    except Exception:
-        st.error("Login failed. Check your username and password.")
-        return None
 
 def signup(username, password):
     try:
