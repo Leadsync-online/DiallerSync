@@ -26,7 +26,7 @@ def main():
     username = st.text_input("Email", key="login_email")
     password = st.text_input("Password", type="password", key="login_password")
 
-    col1, col2, col3 = st.columns([1,5,1])  # Adjust column ratios as needed
+    col1, col2, col3 = st.columns([1,7,1])  # Adjust column ratios as needed
     with col2:
         if st.button("Login ", use_container_width=True):
             user = md.login(username, password)
