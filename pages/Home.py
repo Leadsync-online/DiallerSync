@@ -38,7 +38,7 @@ with st.container(border=True):
 
 st.subheader("Dialler Statistics", divider=False)
 
-a, b,c, d  = st.columns(2)
+a,b,c,d  = st.columns(4)
 
 a.metric("Temperature", "30°F", "-9°F", border=True)
 b.metric("Wind", "4 mph", "2 mph", border=True)
