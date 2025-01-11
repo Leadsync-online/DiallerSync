@@ -28,8 +28,9 @@ with col1:
     ("Onair", "MTN", "Mobile phone"))
 
 with col2:
-    st.date_input("Please select date", today)
+    st.date_input("Please select date?", today)
 
 with col3:
+    st.write("New file")
     if st.button("Import file"):
         st.switch_page("pages/Import.py")
