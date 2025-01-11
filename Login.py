@@ -26,7 +26,7 @@ def main():
     username = st.text_input("Email", key="login_email")
     password = st.text_input("Password", type="password", key="login_password")
 
-    col1, col2, col3 = st.columns([1,1,2])  # Adjust column ratios as needed
+    col1, col2, col3 = st.columns([2,1,2])  # Adjust column ratios as needed
     with col2:
         if st.button("Login ", use_container_width=True):
             user = md.login(username, password)
@@ -35,7 +35,6 @@ def main():
                 st.success("Logged in successfully!")
                 st.switch_page("pages/Home.py")
     # Sign-up button
-    with col3:
         if st.button("Signup", use_container_width=True):
             st.switch_page("pages/Signup.py")
 
