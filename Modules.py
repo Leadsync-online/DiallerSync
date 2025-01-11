@@ -20,7 +20,7 @@ def login(username, password):
 def signup(username, password):
     try:
         user = supabase.auth.sign_up({"email": username, "password": password})
-        st.success("Sign-up successful! You can now log in.")
+        st.success("Please verify your email before logging in.")
         st.switch_page("Login.py")
     except Exception as e:
         st.error(f"Sign-up failed: {e}")
