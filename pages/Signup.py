@@ -1,3 +1,6 @@
+import streamlit as st
+from supabase import create_client, Client
+
 # Sign-up page
 def signup_page():
     st.title("Sign Up")
