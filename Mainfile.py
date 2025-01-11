@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_oauth import OAuth
 from supabase import create_client, Client
 import streamlit_authenticator as stauth
 import json
@@ -9,11 +8,6 @@ SUPABASE_URL = "https://your-supabase-url.supabase.co"
 SUPABASE_KEY = "your-supabase-anon-key"
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-# Initialize Google OAuth
-CLIENT_ID = "your-google-client-id"
-CLIENT_SECRET = "your-google-client-secret"
-REDIRECT_URI = "http://localhost:8501"
-oauth = OAuth(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI)
 
 def login_screen():
     st.title("Login")
