@@ -41,5 +41,3 @@ if "page" not in st.session_state:
 
 if st.session_state["page"] == "Login":
     main()
-elif st.session_state["page"] == "Signup":
-    signup_page()
