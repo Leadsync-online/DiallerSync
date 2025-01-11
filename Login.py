@@ -36,8 +36,4 @@ def main():
         st.switch_page("pages/Signup.py")
 
 # Handle page routing
-if "page" not in st.session_state:
-    st.session_state["page"] = "Login"
-
-if st.session_state["page"] == "Login":
-    main()
+main()
