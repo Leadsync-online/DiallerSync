@@ -50,7 +50,7 @@ def main():
         if user:
             st.session_state["user"] = user
             st.success("Logged in successfully!")
-            st.switch_page("Home")
+            st.switch_page("Home.py")
 
     # Sign-up button
     if st.button("Signup"):
