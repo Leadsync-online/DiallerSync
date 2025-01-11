@@ -17,7 +17,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # Main app layout
 def main():
-    st.title("Welcome to My App")
+    st.title("Dialler Sync")
     st.write("Log in or sign up to continue.")
 
     # Login form
