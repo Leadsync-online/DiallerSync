@@ -16,7 +16,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-col1, col2, col3 = st.columns([1,1,1])  # Adjust column ratios as needed
+
 
 
 
@@ -29,7 +29,8 @@ def main():
     st.subheader("Login")
     username = st.text_input("Email", key="login_email")
     password = st.text_input("Password", type="password", key="login_password")
-    
+
+    col1, col2, col3 = st.columns([1,1,1])  # Adjust column ratios as needed
     with col2:
         if st.button("Login"):
             user = md.login(username, password)
