@@ -16,10 +16,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-
-
-
-
 # Main app layout
 def main():
     st.title("Dialler Sync")
@@ -39,6 +35,7 @@ def main():
                 st.success("Logged in successfully!")
                 st.switch_page("pages/Home.py")
     # Sign-up button
+    with col3:
         if st.button("Signup"):
             st.switch_page("pages/Signup.py")
 
