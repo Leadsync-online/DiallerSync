@@ -12,12 +12,6 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 def login_screen():
     st.title("Login")
     
-    # Google Login
-    google_button = oauth.google_button("Log in with Google")
-    if google_button:
-        user_info = oauth.get_user_info()
-        st.success(f"Welcome {user_info['email']}!")
-
     st.write("---")
     
     # Username/Password Login
