@@ -2,6 +2,8 @@ import streamlit as st
 from supabase import create_client, Client
 import Modules as md
 from datetime import date, timedelta
+import pandas as pd
+import numpy as np
 
 today = date.today()
 
@@ -51,3 +53,8 @@ e.metric("Average Talk Time", "40", "30", border=True)
 f.metric("Average Ring time", "20", "25", border=True)
 g.metric("Contact Rate", "15", "20", border=True)
 k.metric("Distinct Contact Rate", "20", "30", border=True)
+
+with st.container(border=True):
+    chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+    st.area_chart(chart_data)
+
