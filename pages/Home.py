@@ -44,3 +44,10 @@ a.metric("Total dials", "10000", "9000", border=True)
 b.metric("Distinct dials", "5000", "4000", border=True)
 c.metric("Average contact per Agent", "100", "100", border=True)
 d.metric("Average wait time", "15", "16", border=True)
+
+e,f,g,k  = st.columns(4)
+
+e.metric("Average Talk Time", "40", "30", border=True)
+f.metric("Average Ring time", "20", "25", border=True)
+j.metric("Contact Rate", "15", "20", border=True)
+k.metric("Distinct Contact Rate", "20", "30", border=True)
