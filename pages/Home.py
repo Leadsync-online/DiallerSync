@@ -74,7 +74,7 @@ n.metric("Newest CLI", "10", "1", border=True)
 o.metric("Oldest CLI", "100", "10", border=True)
 
 with st.container(border=True):
-    st.write("CLI Utilization)
+    st.write("CLI Utilization")
     chart_data = pd.DataFrame(
         {
             "col1": np.random.randn(20),
