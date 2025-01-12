@@ -29,6 +29,10 @@ with col1:
         with col2:
             st.write("yesty")
 
+        if st.button("User Settings", use_container_width=True):
+        with col2:
+            st.write("dsds")
+
     if st.button("Dashboard", use_container_width=True):
         st.switch_page("pages/Home.py")
     
