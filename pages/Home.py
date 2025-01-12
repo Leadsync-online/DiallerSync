@@ -93,3 +93,8 @@ p.metric("Average Agents", "5", "5", border=True)
 q.metric("New Agents", "1", "1", border=True)
 r.metric("Old Agents", "4", "5", border=True)
 s.metric("Average Agent Tenure", "100", "10", border=True)
+
+with st.container(border=True):
+    st.write("Agents per hour")
+    chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+    st.area_chart(chart_data)
