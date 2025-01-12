@@ -20,20 +20,27 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.header("Dashboard")
+col1, col2, col3, col4 = st.columns(1,1,1,1)
+
+with col1:
+    st.header("Dashboard")
+
+with col4:
+    if st.button("Settings", use_container_width=True):
+        st.switch_page("pages/Settings.py")
 
 with st.container(border=True):
-    col1, col2, col3 = st.columns(3)
+    col5, col6, col7 = st.columns(3)
     
-    with col1:
+    with col5:
         st.selectbox(
         "Please select campaign?",
         ("Onair", "MTN", "Mobile phone"))
     
-    with col2:
+    with col6:
         st.date_input("Please select date?", today)
     
-    with col3:
+    with col7:
         st.text("")
         if st.button("Import file", use_container_width=True):
             st.switch_page("pages/Import.py")
