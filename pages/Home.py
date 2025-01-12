@@ -98,3 +98,17 @@ with st.container(border=True):
     st.write("Agents per hour")
     chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
     st.area_chart(chart_data)
+
+st.subheader("Disposition Statistics", divider=False)
+
+t,u,v,w  = st.columns(4)
+
+t.metric("Contact", "2000", "2000", border=True)
+u.metric("Non Contact", "3000", "3000", border=True)
+v.metric("Voice mails", "1000", "1000", border=True)
+w.metric("Average sec voice mail", "5", "4", border=True)
+
+with st.container(border=True):
+    st.write("Voice mails per hour")
+    chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+    st.area_chart(chart_data)
