@@ -55,6 +55,7 @@ g.metric("Contact Rate", "15", "20", border=True)
 k.metric("Distinct Contact Rate", "20", "30", border=True)
 
 with st.container(border=True):
+    st.write("Average talk time")
     chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
     st.area_chart(chart_data)
 
