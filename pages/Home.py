@@ -72,3 +72,15 @@ l.metric("Number of CLI's", "5", "5", border=True)
 m.metric("Average CLI Usage", "5000", "4000", border=True)
 n.metric("Newest CLI", "10", "1", border=True)
 o.metric("Oldest CLI", "100", "10", border=True)
+
+with st.container(border=True):
+    st.write("CLI Utilization)
+    chart_data = pd.DataFrame(
+        {
+            "col1": np.random.randn(20),
+            "col2": np.random.randn(20),
+            "col3": np.random.choice(["A", "B", "C"], 20),
+        }
+    )
+    
+    st.line_chart(chart_data, x="col1", y="col2", color="col3")
