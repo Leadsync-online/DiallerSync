@@ -40,8 +40,7 @@ st.subheader("Dialler Statistics", divider=False)
 
 a,b,c,d  = st.columns(4)
 
-a.metric("Temperature", "30°F", "-9°F", border=True)
-b.metric("Wind", "4 mph", "2 mph", border=True)
-
-c.metric("Humidity", "77%", "5%", border=True)
-d.metric("Pressure", "30.34 inHg", "-2 inHg", border=True)
+a.metric("Total dials", "10000", "9000", border=True)
+b.metric("Distinct dials", "5000", "4000", border=True)
+c.metric("Average contact per Agent", "100", "100", border=True)
+d.metric("Average wait time", "15", "16", border=True)
