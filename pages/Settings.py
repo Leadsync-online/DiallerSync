@@ -25,6 +25,10 @@ col1, col2 = st.columns([1,1])
 with col1:
     st.header("Settings")
 
+    if st.button("Account Settings", use_container_width=True):
+        with col2:
+            st.write("yesty")
+
     if st.button("Dashboard", use_container_width=True):
         st.switch_page("pages/Home.py")
     
