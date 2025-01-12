@@ -29,4 +29,4 @@ with col1:
         st.switch_page("pages/Home.py")
     
     if st.button("Logout", use_container_width=True):
-        st.switch_page("pages/Login.py")
+        st.switch_page("Login.py")
