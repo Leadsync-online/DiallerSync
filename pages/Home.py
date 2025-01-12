@@ -84,3 +84,12 @@ with st.container(border=True):
     )
     
     st.line_chart(chart_data, x="col1", y="col2", color="col3")
+
+st.subheader("Agent Statistics", divider=False)
+
+p,q,r,s  = st.columns(4)
+
+p.metric("Average Agents", "5", "5", border=True)
+q.metric("New Agents", "1", "1", border=True)
+r.metric("Old Agents", "4", "5", border=True)
+s.metric("Average Agent Tenure", "100", "10", border=True)
