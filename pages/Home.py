@@ -26,6 +26,7 @@ with col1:
     st.header("Dashboard")
 
 with col4:
+    st.text("")
     if st.button("Settings", use_container_width=True):
         st.switch_page("pages/Settings.py")
 
