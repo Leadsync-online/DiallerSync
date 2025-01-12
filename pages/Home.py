@@ -63,3 +63,12 @@ with st.container(border=True):
     st.write("Average Contact Rate")
     chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
     st.area_chart(chart_data)
+
+st.subheader("CLI Statistics", divider=False)
+
+l,m,n,o  = st.columns(4)
+
+l.metric("Number of CLI's", "5", "5", border=True)
+m.metric("Average CLI Usage", "5000", "4000", border=True)
+n.metric("Newest CLI", "10", "1", border=True)
+o.metric("Oldest CLI", "100", "10", border=True)
