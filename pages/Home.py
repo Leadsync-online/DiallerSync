@@ -59,3 +59,7 @@ with st.container(border=True):
     chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
     st.area_chart(chart_data)
 
+with st.container(border=True):
+    st.write("Average Contact Rate")
+    chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+    st.area_chart(chart_data)
