@@ -112,3 +112,8 @@ with st.container(border=True):
     st.write("Voice mails per hour")
     chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
     st.area_chart(chart_data)
+    
+with st.container(border=True):
+    st.write("Dispositions")
+    df = pd.DataFrame(np.random.randn(50, 20), columns=("col %d" % i for i in range(20)))
+    st.dataframe(df) 
