@@ -5,16 +5,12 @@ import Modules as md
 # Hide Streamlit sidebar and other UI elements
 st.set_page_config(initial_sidebar_state="collapsed")
 
-st.markdown(
-    """
-<style>
-    [data-testid="stBaseButton"] {
-        display: none
-    }
-</style>
-""",
-    unsafe_allow_html=True,
-)
+no_sidebar_style = """
+    <style>
+        div[data-testid="stSidebarNav"] {display: none;}
+    </style>
+"""
+st.markdown(no_sidebar_style, unsafe_allow_html=True)
 
 st.image("images/Dialler_Sync.png",width = 180)
 
