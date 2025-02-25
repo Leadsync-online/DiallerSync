@@ -18,6 +18,9 @@ st.markdown(
 
 # Main app layout
 def main():
+    logo = "images/Dialler_Sync.png"
+    st.logo(sidebar_logo, icon_image=main_body_logo)
+    
     st.title("Dialler Sync")
     st.write("Log in or sign up to continue.")
 
