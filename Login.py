@@ -8,6 +8,7 @@ st.set_page_config(initial_sidebar_state="collapsed")
 no_sidebar_style = """
     <style>
         div[data-testid="stSidebarNav"] {display: none;}
+        div[data-testid="stSidebarUserContent"] {display: none;}
     </style>
 """
 st.markdown(no_sidebar_style, unsafe_allow_html=True)
@@ -16,9 +17,7 @@ st.image("images/Dialler_Sync.png",width = 180)
 
 # Main app layout
 def main():
-
     
-    st.title("Dialler Sync")
     st.write("Log in or sign up to continue.")
 
     # Login form
