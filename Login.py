@@ -16,7 +16,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.image("images/Dialler_Sync.png",width = 100)
+st.image("images/Dialler_Sync.png",width = 180)
 
 # Main app layout
 def main():
