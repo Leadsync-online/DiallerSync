@@ -24,7 +24,6 @@ def main():
     st.write("Log in or sign up to continue.")
 
     # Login form
-    st.subheader("Login")
     username = st.text_input("Email", key="login_email")
     password = st.text_input("Password", type="password", key="login_password")
 
