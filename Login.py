@@ -18,8 +18,7 @@ st.markdown(
 
 # Main app layout
 def main():
-    logo = "images/Dialler_Sync.png"
-    st.logo(logo)
+    st.logo("images/Dialler_Sync.png")
     
     st.title("Dialler Sync")
     st.write("Log in or sign up to continue.")
