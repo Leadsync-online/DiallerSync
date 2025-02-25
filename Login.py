@@ -8,7 +8,7 @@ st.set_page_config(initial_sidebar_state="collapsed")
 no_sidebar_style = """
     <style>
         div[data-testid="stSidebarNav"] {display: none;}
-        div[data-testid="stSidebarUserContent"] {display: none;}
+        div[data-testid="stSidebar"] {display: none;}
     </style>
 """
 st.markdown(no_sidebar_style, unsafe_allow_html=True)
