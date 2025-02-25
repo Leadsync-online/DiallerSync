@@ -8,7 +8,7 @@ st.set_page_config(initial_sidebar_state="collapsed")
 st.markdown(
     """
 <style>
-    [data-testid="viewBox"] {
+    [data-testid="stBaseButton"] {
         display: none
     }
 </style>
