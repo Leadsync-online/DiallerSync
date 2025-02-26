@@ -24,9 +24,7 @@ st.header("Import new file")
 
 uploaded_files = st.file_uploader("Select your file", accept_multiple_files=True, type=["csv", "txt", "xls", "xlsx"])
 
-file_path = uploaded_file.name
-
-with open(file_path, "wb") as f:
+with open(uploaded_files, "wb") as f:
     f.write(uploaded_file.getbuffer())
     df = md.read_file(file_path)
     st.write("File successfully read. Here are the first few rows:")
