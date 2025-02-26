@@ -1,3 +1,4 @@
 streamlit-oauth
 supabase
 streamlit_authenticator
+pandas
