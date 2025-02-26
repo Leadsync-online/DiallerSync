@@ -15,10 +15,14 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+col1, col2, col3 = st.columns(3)
+
+with col2:
+    st.image("images/Dialler_Sync.png",width = 180)
+    st.write("Create a new account.")
+
 # Sign-up page
 def signup_page():
-    st.title("Sign Up")
-    st.write("Create a new account.")
 
     signup_email = st.text_input("New Email", key="signup_email")
     signup_password = st.text_input("New Password", type="password", key="signup_password")
