@@ -21,7 +21,7 @@ def add_bg_from_local():
         f"""
         <style>
         .stApp {{
-            background-image: url("./static/peakpx.jpg");
+            background-image: url("./images/peakpx.jpg");
             background-size: cover;
         }}
         </style>
