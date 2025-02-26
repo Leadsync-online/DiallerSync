@@ -25,14 +25,15 @@ with col2:
 def signup_page():
 
     col1, col2, col3 = st.columns([1,7,1])  # Adjust column ratios as needed
-        with col2:
-            signup_email = st.text_input("New Email", key="signup_email")
-            signup_password = st.text_input("New Password", type="password", key="signup_password")
-            if st.button("Create Account"):
-                md.signup(signup_email, signup_password)
+    with col2:
+        signup_email = st.text_input("New Email", key="signup_email")
+        signup_password = st.text_input("New Password", type="password", key="signup_password")
+        
+        if st.button("Create Account"):
+            md.signup(signup_email, signup_password)
         
             # Back to login button
-            if st.button("Back to Login"):
-                st.switch_page("Login.py")
+        if st.button("Back to Login"):
+            st.switch_page("Login.py")
 
 signup_page()
