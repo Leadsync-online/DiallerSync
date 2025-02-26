@@ -31,7 +31,9 @@ if uploaded_file is not None:
         limitdf = df.head(3)
         st.dataframe(limitdf)
 
-        md.map_fields_to_supabase(limitdf,"test")
+        dipositiontable = md.get_table_columns("TM_Dialler_Disposition")
+
+        md.map_fields_to_supabase(limitdf,dipositiontable)
     except Exception as e:
         st.error(f"Error: {e}")
 
