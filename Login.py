@@ -16,12 +16,16 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.image("images/Dialler_Sync.png",width = 180)
+col1, col2, col3 = st.columns(3)
 
+with col3:
+    st.image("images/Dialler_Sync.png",width = 180)
+    st.write("Log in or sign up to continue.")
+    
 # Main app layout
 def main():
     
-    st.write("Log in or sign up to continue.")
+
 
     # Login form
     username = st.text_input("Email", key="login_email")
