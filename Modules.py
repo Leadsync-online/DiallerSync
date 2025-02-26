@@ -53,7 +53,7 @@ def read_file(uploaded_file):
 def select_and_map_fields(df):
     """Allows the user to select fields and map them to a table."""
     st.write("Select fields to include in the table:")
-    selected_columns = st.multiselect("Choose columns", df.columns.tolist(), default=df.columns.tolist())
+    selected_columns = st.multiselect("Choose columns", df.columns.tolist())
     if selected_columns:
         mapped_df = df[selected_columns]
         st.write("Mapped Table:")
