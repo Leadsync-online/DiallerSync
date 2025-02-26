@@ -29,6 +29,10 @@ if uploaded_file is not None:
         df = md.read_file(uploaded_file)
         st.write("File successfully read. Here are the first few rows:")
         st.dataframe(df.head())
+
+        md.select_and_map_fields(df)
     except Exception as e:
         st.error(f"Error: {e}")
+
+    
 
