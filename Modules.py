@@ -52,7 +52,7 @@ def read_file(uploaded_file):
 
 def get_table_columns(table_name):
     """Fetches the table columns from Supabase and returns a DataFrame."""
-    response = supabase.table(table_name).select("*").limit(1).execute()    
+    response = supabase.table(table_name).select("idnumber,agent_id,call_start,call_end,duration,disposition,disposition_discription,phone_number").limit(1).execute()    
     if hasattr(response, "error") and response.error:
         st.error(f"Error fetching columns: {response.error}")
         return pd.DataFrame()    
