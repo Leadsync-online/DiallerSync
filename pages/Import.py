@@ -26,7 +26,7 @@ uploaded_file = st.file_uploader("Upload a CSV, TXT, or Excel file", type=["csv"
 
 if uploaded_file is not None:
     try:
-        df = read_file(uploaded_file)
+        df = md.read_file(uploaded_file)
         st.write("File successfully read. Here are the first few rows:")
         st.dataframe(df.head())
     except Exception as e:
