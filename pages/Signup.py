@@ -9,11 +9,27 @@ st.markdown(
 <style>
     [data-testid="stSidebarCollapsedControl"] {
         display: none
+
     }
 </style>
 """,
     unsafe_allow_html=True,
 )
+
+def add_bg_from_local():
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url("./static/your_image.jpg");
+            background-size: cover;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+add_bg_from_local()
 
 col1, col2, col3 = st.columns(3)
 
