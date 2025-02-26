@@ -22,10 +22,13 @@ st.markdown(
 
 st.header("Import new file")
 
-uploaded_files = st.file_uploader("Select your file", accept_multiple_files=True, type=["csv", "txt", "xls", "xlsx"])
+uploaded_file = st.file_uploader("Upload a CSV, TXT, or Excel file", type=["csv", "txt", "xls", "xlsx"])
 
-with open(uploaded_files, "wb") as f:
-    f.write(uploaded_file.getbuffer())
-    df = md.read_file(file_path)
-    st.write("File successfully read. Here are the first few rows:")
-    st.dataframe(df.head())
+if uploaded_file is not None:
+    try:
+        df = read_file(uploaded_file)
+        st.write("File successfully read. Here are the first few rows:")
+        st.dataframe(df.head())
+    except Exception as e:
+        st.error(f"Error: {e}")
+
