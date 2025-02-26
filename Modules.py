@@ -50,15 +50,14 @@ def read_file(uploaded_file):
     
     return df
 
-def select_and_map_fields(df):
-    """Allows the user to select fields and map them to a table efficiently."""
-    st.write("Select fields to include in the table:")
-    default_columns = df.columns[:5].tolist() if len(df.columns) > 5 else df.columns.tolist()
-    selected_columns = st.multiselect("Choose columns", df.columns.tolist(), default=default_columns)
+def map_fields_to_supabase(df, table_name):
+    """Allows users to select fields from the file and map them to a Supabase table."""
+    columns = df.columns.tolist()
+    field_mapping = {}
     
-    # if selected_columns:
-    #     mapped_df = df[selected_columns]
-    #     st.write("Mapped Table:")
-    #     st.dataframe(mapped_df.head(10))
-    # else:
-    #     st.warning("Please select at least one column.")
+    st.write("### Map Fields to Supabase Table")
+    for col in columns:
+        field_mapping[col] = st.selectbox(f"Select mapping for {col}", ["Ignore"] + columns, index=0)
+    
+    mapped_data = df.rename(columns=field_mapping).drop(columns=[col for col, mapped in field_mapping.items() if mapped == "Ignore"], errors='ignore')
+    
