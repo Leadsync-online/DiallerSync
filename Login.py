@@ -18,7 +18,7 @@ st.markdown(
 
 col1, col2, col3 = st.columns(3)
 
-with col3:
+with col2:
     st.image("images/Dialler_Sync.png",width = 180)
     st.write("Log in or sign up to continue.")
     
