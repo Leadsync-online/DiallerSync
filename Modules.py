@@ -65,12 +65,13 @@ def get_table_columns(table_name):
 
 def map_fields_to_supabase(df, table_name):
     """Allows users to select fields from the file and map them to a Supabase table."""
-    columns = df.columns.tolist()
+    columns = table_name.columns.tolist()
+    dfcolumns = df.columns.tolist()
     field_mapping = {}
     
     st.write("### Map Fields to Supabase Table")
     for col in columns:
-        field_mapping[col] = st.selectbox(f"Select mapping for {col}", ["Ignore"] + columns, index=0)
+            field_mapping[col] = st.selectbox(f"Select mapping for {col}", ["Ignore"] + dfcolumns, index=0)
     
     mapped_data = df.rename(columns=field_mapping).drop(columns=[col for col, mapped in field_mapping.items() if mapped == "Ignore"], errors='ignore')
     
