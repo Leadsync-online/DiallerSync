@@ -31,7 +31,7 @@ if uploaded_file is not None:
         limitdf = df.head(3)
         st.dataframe(limitdf)
 
-        md.map_fields_to_supabase(limitdf)
+        md.map_fields_to_supabase(limitdf,"test")
     except Exception as e:
         st.error(f"Error: {e}")
 
