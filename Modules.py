@@ -28,21 +28,23 @@ def signup(username, password):
         st.error(f"Sign-up failed: {e}")
 
 # File checker
-def detect_delimiter(file_path):
-    with open(file_path, 'r', newline='', encoding='utf-8') as file:
-        sample = file.read(1024)
-        sniffer = csv.Sniffer()
-        delimiter = sniffer.sniff(sample).delimiter
-        return delimiter
+def detect_delimiter(file):
+    """Detects the delimiter of a CSV/TXT file."""
+    sample = file.read(1024).decode('utf-8')
+    file.seek(0)
+    sniffer = csv.Sniffer()
+    delimiter = sniffer.sniff(sample).delimiter
+    return delimiter
 
-def read_file(file_path):
-    ext = os.path.splitext(file_path)[-1].lower()
+def read_file(uploaded_file):
+    """Reads an uploaded file (CSV, TXT, Excel) while auto-detecting its type and delimiter."""
+    ext = uploaded_file.name.split('.')[-1].lower()
     
-    if ext in ['.xls', '.xlsx']:
-        df = pd.read_excel(file_path)
-    elif ext in ['.csv', '.txt']:
-        delimiter = detect_delimiter(file_path)
-        df = pd.read_csv(file_path, delimiter=delimiter)
+    if ext in ['xls', 'xlsx']:
+        df = pd.read_excel(uploaded_file)
+    elif ext in ['csv', 'txt']:
+        delimiter = detect_delimiter(uploaded_file)
+        df = pd.read_csv(uploaded_file, delimiter=delimiter)
     else:
         raise ValueError("Unsupported file format. Please provide a CSV, TXT, or Excel file.")
     
