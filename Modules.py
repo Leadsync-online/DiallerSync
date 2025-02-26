@@ -51,12 +51,14 @@ def read_file(uploaded_file):
     return df
 
 def select_and_map_fields(df):
-    """Allows the user to select fields and map them to a table."""
+    """Allows the user to select fields and map them to a table efficiently."""
     st.write("Select fields to include in the table:")
-    selected_columns = st.multiselect("Choose columns", df.columns.tolist())
+    default_columns = df.columns[:5].tolist() if len(df.columns) > 5 else df.columns.tolist()
+    selected_columns = st.multiselect("Choose columns", df.columns.tolist(), default=default_columns)
+    
     if selected_columns:
         mapped_df = df[selected_columns]
         st.write("Mapped Table:")
-        st.dataframe(mapped_df)
+        st.dataframe(mapped_df.head(10))
     else:
         st.warning("Please select at least one column.")
