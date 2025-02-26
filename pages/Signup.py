@@ -29,11 +29,11 @@ def signup_page():
         signup_email = st.text_input("New Email", key="signup_email")
         signup_password = st.text_input("New Password", type="password", key="signup_password")
         
-        if st.button("Create Account"):
+        if st.button("Create Account",use_container_width=True):
             md.signup(signup_email, signup_password)
         
             # Back to login button
-        if st.button("Back to Login"):
+        if st.button("Back to Login",use_container_width=True):
             st.switch_page("Login.py")
 
 signup_page()
