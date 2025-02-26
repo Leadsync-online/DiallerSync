@@ -22,13 +22,15 @@ st.markdown(
 
 st.header("Import new file")
 
-uploaded_files = st.file_uploader(
-    "Choose a CSV file", accept_multiple_files=True
-)
-for uploaded_file in uploaded_files:
-    bytes_data = uploaded_file.read()
-    st.write("filename:", uploaded_file.name)
-    st.write(bytes_data)
+uploaded_files = st.file_uploader("Select your file", accept_multiple_files=True, type=["csv", "txt", "xls", "xlsx"])
 
-if st.button("Dashboard", use_container_width=True):
-    st.switch_page("pages/Home.py")
+if uploaded_file is not None:
+    try:
+        file_path = uploaded_file.name
+        with open(file_path, "wb") as f:
+            f.write(uploaded_file.getbuffer())
+        df = md.read_file(file_path)
+        st.write("File successfully read. Here are the first few rows:")
+        st.dataframe(df.head())
+    except Exception as e:
+        st.error(f"Error: {e}")
