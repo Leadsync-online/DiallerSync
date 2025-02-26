@@ -50,6 +50,16 @@ def read_file(uploaded_file):
     
     return df
 
+def get_table_columns(table_name):
+    """Fetches the table columns from Supabase and returns a DataFrame."""
+    response = supabase.table(table_name).select("*").limit(1).execute()
+    if response.get("error"):
+        st.error(f"Error fetching columns: {response['error']}")
+        return pd.DataFrame()
+    else:
+        columns = response["data"][0].keys() if response["data"] else []
+        return pd.DataFrame(columns=columns)
+
 def map_fields_to_supabase(df, table_name):
     """Allows users to select fields from the file and map them to a Supabase table."""
     columns = df.columns.tolist()
