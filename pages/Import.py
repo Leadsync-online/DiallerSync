@@ -29,7 +29,7 @@ with col4:
     if st.button("Dashboard", use_container_width=True):
         st.switch_page("pages/Home.py")
 
-uploaded_file = st.file_uploader("Upload file", type=["csv", "txt", "xls", "xlsx"])
+uploaded_file = st.file_uploader("", type=["csv", "txt", "xls", "xlsx"])
 
 if uploaded_file is not None:
     try:
