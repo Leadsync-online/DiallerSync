@@ -75,7 +75,8 @@ def map_fields_to_supabase(df, table_name):
     
     mapped_data = df.rename(columns=field_mapping).drop(columns=[col for col, mapped in field_mapping.items() if mapped == "Ignore"], errors='ignore')
 
-    if st.button("Upload to Supabase"):
+    submitted = st.form_submit_button("Submit")
+    if submitted:
         data = mapped_data.to_dict(orient='records')
         response = supabase.table(table_name).insert(data).execute()
         if response.get("error"):
