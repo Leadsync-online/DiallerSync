@@ -11,13 +11,13 @@ st.set_page_config(initial_sidebar_state="collapsed",layout="wide")
 
 st.markdown(
     """
-    <style>
-    [data-testid="stSidebar"]{
-        visibility: hidden;
+<style>
+    [data-testid="stSidebarCollapsedControl"] {
+        display: none
     }
-    </style>
-    """, 
-    unsafe_allow_html=True
+</style>
+""",
+    unsafe_allow_html=True,
 )
 
 col1, col2 = st.columns([1,1])
