@@ -73,10 +73,10 @@ def map_fields_to_supabase(df, table_name):
     st.write("### Map Fields to Supabase Table")
     field_mapping = {}
     
-    with st.form(key="mapping_form"):
-        for col in supabase_columns:
-            field_mapping[col] = st.selectbox(f"Map to {col}", ["Ignore"] + df.columns.tolist(), index=0)
-        submit_button = st.form_submit_button(label="Upload to Supabase")
+    # with st.form(key="mapping_form"):
+    #     for col in supabase_columns:
+    #         field_mapping[col] = st.selectbox(f"Map to {col}", ["Ignore"] + df.columns.tolist(), index=0)
+    #     submit_button = st.form_submit_button(label="Upload to Supabase")
     
     # if submit_button:
     #     mapped_data = df.rename(columns=field_mapping).drop(columns=[col for col, mapped in field_mapping.items() if mapped == "Ignore"], errors='ignore')
