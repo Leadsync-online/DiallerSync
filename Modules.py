@@ -65,7 +65,7 @@ def get_table_columns(table_name):
 
 def map_fields_to_supabase(df, table_name):
     """Allows users to map DataFrame fields to Supabase table columns using a form."""
-    # supabase_columns = get_table_columns(table_name)
+    supabase_columns = supabase.table(table_name).select("*").limit(1).execute()
     # if not supabase_columns:
     #     st.error("Could not fetch Supabase table columns.")
     #     return
