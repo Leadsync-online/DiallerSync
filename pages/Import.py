@@ -28,6 +28,7 @@ with col1:
 with col4:
     st.text("")
     st.text("")
+    st.text("")
     if st.button("Dashboard", use_container_width=True):
         st.switch_page("pages/Home.py")
 
