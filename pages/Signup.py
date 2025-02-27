@@ -9,7 +9,6 @@ st.markdown(
 <style>
     [data-testid="stSidebarCollapsedControl"] {
         display: none
-
     }
 </style>
 """,
