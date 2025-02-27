@@ -77,12 +77,11 @@ def map_fields_to_supabase(df, table_name):
 
     submitted = st.form_submit_button("Submit")
     if submitted:
-        data = mapped_data.to_dict(orient='records')
-        response = supabase.table(table_name).insert(data).execute()
-        if response.get("error"):
-            st.error(f"Error inserting data: {response['error']}")
-        else:
-            st.success("Data successfully uploaded to Supabase!")
-    
-    return mapped_data
-    
+        st.dataframe(mapped_data)
+        
+    #     data = mapped_data.to_dict(orient='records')
+    #     response = supabase.table(table_name).insert(data).execute()
+    #     if response.get("error"):
+    #         st.error(f"Error inserting data: {response['error']}")
+    #     else:
+    #         st.success("Data successfully uploaded to Supabase!")
