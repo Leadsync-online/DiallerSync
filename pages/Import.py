@@ -20,7 +20,15 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.header("Import new file")
+col1, col2, col3, col4 = st.columns([1,1,1,1])
+
+with col1:
+    st.header("Import new file")
+
+with col4:
+    st.text("")
+    if st.button("Settings", use_container_width=True):
+        st.switch_page("pages/Home.py")
 
 uploaded_file = st.file_uploader("Upload a CSV, TXT, or Excel file", type=["csv", "txt", "xls", "xlsx"])
 
