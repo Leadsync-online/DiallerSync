@@ -37,12 +37,10 @@ if uploaded_file is not None:
         st.write("File successfully read. Here are the first few rows:")
 
         dipositiontable = md.get_table_columns("tm_dialler_disposition")
+        
         with st.form("my_form"):
             md.map_fields_to_supabase(df,dipositiontable)
 
-            submitted = st.form_submit_button("Submit")
-            if submitted:
-                st.write("slider")
     except Exception as e:
         st.error(f"Error: {e}")
 
