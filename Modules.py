@@ -78,11 +78,11 @@ def map_fields_to_supabase(df, table_name):
             field_mapping[col] = st.selectbox(f"Map to {col}", ["Ignore"] + df.columns.tolist(), index=0)
         submit_button = st.form_submit_button(label="Upload to Supabase")
     
-    if submit_button:
-        mapped_data = df.rename(columns=field_mapping).drop(columns=[col for col, mapped in field_mapping.items() if mapped == "Ignore"], errors='ignore')
-        data = mapped_data.to_dict(orient='records')
-        response = supabase.table(table_name).insert(data).execute()
-        if hasattr(response, "error") and response.error:
-            st.error(f"Error inserting data: {response.error}")
-        else:
-            st.success("Data successfully uploaded to Supabase!")
+    # if submit_button:
+    #     mapped_data = df.rename(columns=field_mapping).drop(columns=[col for col, mapped in field_mapping.items() if mapped == "Ignore"], errors='ignore')
+    #     data = mapped_data.to_dict(orient='records')
+    #     response = supabase.table(table_name).insert(data).execute()
+    #     if hasattr(response, "error") and response.error:
+    #         st.error(f"Error inserting data: {response.error}")
+    #     else:
+    #         st.success("Data successfully uploaded to Supabase!")
