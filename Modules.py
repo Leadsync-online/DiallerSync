@@ -75,3 +75,5 @@ def map_fields_to_supabase(df, table_name):
     
     mapped_data = df.rename(columns=field_mapping).drop(columns=[col for col, mapped in field_mapping.items() if mapped == "Ignore"], errors='ignore')
     
+    return mapped_data
+    
