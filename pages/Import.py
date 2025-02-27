@@ -27,7 +27,7 @@ with col1:
 
 with col4:
     st.text("")
-    if st.button("Settings", use_container_width=True):
+    if st.button("Dashboard", use_container_width=True):
         st.switch_page("pages/Home.py")
 
 uploaded_file = st.file_uploader("Upload a CSV, TXT, or Excel file", type=["csv", "txt", "xls", "xlsx"])
