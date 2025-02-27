@@ -78,7 +78,7 @@ def map_fields_to_supabase(df, table_name):
     if submitted:
 
         mapped_data = df.rename(columns=field_mapping).drop(columns=[col for col, mapped in field_mapping.items() if mapped == "Ignore"], errors='ignore')
-
+        st.write(field_mapping[col])
         st.dataframe(mapped_data)
         
     #     data = mapped_data.to_dict(orient='records')
