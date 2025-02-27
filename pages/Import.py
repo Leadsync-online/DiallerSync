@@ -35,12 +35,10 @@ if uploaded_file is not None:
     try:
         df = md.read_file(uploaded_file)
         st.write("File successfully read. Here are the first few rows:")
-        limitdf = df.head(3)
-        st.dataframe(limitdf)
 
         dipositiontable = md.get_table_columns("tm_dialler_disposition")
         with st.form("my_form"):
-            md.map_fields_to_supabase(limitdf,dipositiontable)
+            md.map_fields_to_supabase(df,dipositiontable)
 
             submitted = st.form_submit_button("Submit")
             if submitted:
