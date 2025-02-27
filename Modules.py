@@ -73,10 +73,12 @@ def map_fields_to_supabase(df, table_name):
     for col in columns:
             field_mapping[col] = st.selectbox(f"Select mapping for {col}", ["Ignore"] + dfcolumns, index=0)
     
-    mapped_data = df.rename(columns=field_mapping).drop(columns=[col for col, mapped in field_mapping.items() if mapped == "Ignore"], errors='ignore')
-
+    
     submitted = st.form_submit_button("Submit")
     if submitted:
+
+        mapped_data = df.rename(columns=field_mapping).drop(columns=[col for col, mapped in field_mapping.items() if mapped == "Ignore"], errors='ignore')
+
         st.dataframe(mapped_data)
         
     #     data = mapped_data.to_dict(orient='records')
