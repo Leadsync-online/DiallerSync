@@ -64,26 +64,25 @@ def get_table_columns(table_name):
 
 
 def map_fields_to_supabase(df, table_name):
-    """Allows users to select fields from the file and map them to a Supabase table."""
-    columns = table_name.columns.tolist()
-    dfcolumns = df.columns.tolist()
-    field_mapping = {}
+    """Allows users to map DataFrame fields to Supabase table columns using a form."""
+    supabase_columns = get_table_columns(table_name)
+    if not supabase_columns:
+        st.error("Could not fetch Supabase table columns.")
+        return
     
     st.write("### Map Fields to Supabase Table")
-    for col in columns:
-            field_mapping[col] = st.selectbox(f"Select mapping for {col}", ["Ignore"] + dfcolumns, index=0)
+    field_mapping = {}
     
+    with st.form(key="mapping_form"):
+        for col in supabase_columns:
+            field_mapping[col] = st.selectbox(f"Map to {col}", ["Ignore"] + df.columns.tolist(), index=0)
+        submit_button = st.form_submit_button(label="Upload to Supabase")
     
-    submitted = st.form_submit_button("Submit")
-    if submitted:
-
+    if submit_button:
         mapped_data = df.rename(columns=field_mapping).drop(columns=[col for col, mapped in field_mapping.items() if mapped == "Ignore"], errors='ignore')
-        st.write(field_mapping[col])
-        st.dataframe(mapped_data)
-        
-    #     data = mapped_data.to_dict(orient='records')
-    #     response = supabase.table(table_name).insert(data).execute()
-    #     if response.get("error"):
-    #         st.error(f"Error inserting data: {response['error']}")
-    #     else:
-    #         st.success("Data successfully uploaded to Supabase!")
+        data = mapped_data.to_dict(orient='records')
+        response = supabase.table(table_name).insert(data).execute()
+        if hasattr(response, "error") and response.error:
+            st.error(f"Error inserting data: {response.error}")
+        else:
+            st.success("Data successfully uploaded to Supabase!")
