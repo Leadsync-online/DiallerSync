@@ -64,7 +64,7 @@ def get_table_columns(table_name):
 
 
 def map_fields_to_supabase(df, table_name):
-   """Allows users to map fields from the uploaded file to Supabase table columns within a form."""
+    """Allows users to map fields from the uploaded file to Supabase table columns within a form."""
     df_columns = df.columns.tolist()
     supabase_columns = get_table_columns(table_name).columns.tolist()
     field_mapping = {}
