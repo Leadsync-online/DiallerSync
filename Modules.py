@@ -63,11 +63,11 @@ def get_table_columns(table_name):
     return pd.DataFrame(columns=columns)
 
 
-def map_fields_to_supabase(df, table_name):
-    """Allows users to map fields from the uploaded file to Supabase table columns within a form."""
-    df_columns = df.columns.tolist()
-    st.dataframe(df_columns.head(3))
-    supabase_table = get_table_columns(table_name)
+# def map_fields_to_supabase(df, table_name):
+#     """Allows users to map fields from the uploaded file to Supabase table columns within a form."""
+#     df_columns = df.columns.tolist()
+#     st.dataframe(df_columns.head(3))
+#     supabase_table = get_table_columns(table_name)
     
     # if supabase_table.empty:
     #     st.error("Failed to fetch Supabase table columns. Please check your connection or table name.")
