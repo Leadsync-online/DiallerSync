@@ -31,6 +31,7 @@ def signup_page():
         
         if st.button("Create Account",use_container_width=True):
             md.signup(signup_email, signup_password)
+            st.info('This is a purely informational message', icon="ℹ️")
         
             # Back to login button
         if st.button("Back to Login",use_container_width=True):
