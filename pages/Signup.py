@@ -1,6 +1,7 @@
 import streamlit as st
 from supabase import create_client, Client
 import Modules as md
+import time
 
 st.set_page_config(initial_sidebar_state="collapsed")
 
@@ -30,7 +31,8 @@ def signup_page():
         signup_password = st.text_input("New Password", type="password", key="signup_password")
         
         if st.button("Create Account",use_container_width=True):
-            st.info('This is a purely informational message', icon="ℹ️")
+            st.info('Please check email for varification', icon="ℹ️")
+            time.sleep(2.5)
             md.signup(signup_email, signup_password)
             
         
