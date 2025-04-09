@@ -36,7 +36,8 @@ def main():
             if user:
                 st.session_state["user"] = user
                 st.success("Logged in successfully!")
-                st.switch_page("pages/Home.py")
+                st.write(user)
+                # st.switch_page("pages/Home.py")
     # Sign-up button
         if st.button("Signup", use_container_width=True):
             st.switch_page("pages/Signup.py")
